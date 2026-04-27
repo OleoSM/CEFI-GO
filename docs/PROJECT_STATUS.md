@@ -20,7 +20,7 @@ Sesión actual: `localStorage` placeholder en `js/router.js` con guards síncron
 
 | # | Sub-proyecto | Estado | Spec |
 |---|---|---|---|
-| 1 | Cimientos: Supabase + Auth + Seguridad base + Vercel | 🟢 spec aprobado, listo para plan | [2026-04-26-cimientos-design.md](superpowers/specs/2026-04-26-cimientos-design.md) |
+| 1 | Cimientos: Supabase + Auth + Seguridad base + Vercel | 🟡 plan escrito, ejecución en curso | [spec](superpowers/specs/2026-04-26-cimientos-design.md) · [plan](superpowers/plans/2026-04-26-cimientos-implementation.md) |
 | 2 | Catálogo de cursos y planes | ⚪ no iniciado | — |
 | 3 | Pago por transferencia + upload de comprobante | ⚪ no iniciado | — |
 | 4 | Panel de administrador | ⚪ no iniciado | — |
@@ -34,7 +34,7 @@ La seguridad se aplica **transversalmente** en cada uno, no solo al final.
 
 **Fecha:** 2026-04-26
 **Sub-proyecto activo:** #1 Cimientos
-**Etapa:** spec aprobado por usuario, siguiente paso = `writing-plans` (plan de implementación)
+**Etapa:** plan de implementación escrito y commiteado. Ejecutando con `superpowers:executing-plans`. Fase 1 (scaffold Next.js) en curso; Fase 0 (cuentas Supabase/Upstash/GitHub) pendiente del usuario.
 
 ### Decisiones tomadas
 
@@ -62,8 +62,10 @@ La seguridad se aplica **transversalmente** en cada uno, no solo al final.
 
 1. Lee este archivo (`docs/PROJECT_STATUS.md`)
 2. Lee la memoria del proyecto en `~/.claude/projects/.../memory/MEMORY.md`
-3. Si hay un spec en `docs/superpowers/specs/` para el sub-proyecto activo, léelo
-4. Pregunta al usuario por el siguiente paso pendiente listado arriba
+3. Lee el spec aprobado en `docs/superpowers/specs/2026-04-26-cimientos-design.md`
+4. Lee el plan en `docs/superpowers/plans/2026-04-26-cimientos-implementation.md` y revisa qué fases están commiteadas en `git log` para saber qué falta
+5. **Próximo paso concreto:** invocar `superpowers:executing-plans` y continuar la siguiente fase pendiente (cada fase termina con un CHECKPOINT)
+6. Si el usuario te pide otra cosa primero, atender eso.
 
 ## Specs y artefactos
 
