@@ -36,6 +36,14 @@ test-results/
 # --- Vercel ---
 .vercel
 
+# --- Supabase ---
+supabase/.branches
+supabase/.temp
+supabase/.env
+
+# --- Playwright auth state ---
+tests/e2e/.auth/
+
 # --- Sistema operativo ---
 .DS_Store
 Thumbs.db
