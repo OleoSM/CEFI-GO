@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="CEFITIPS — La plataforma #1 en México para preparar tu examen de admisión a UNAM, IPN, UAM y COMIPEMS. Cursos interactivos, simulacros reales y mentores expertos." />
+  <meta name="theme-color" content="#0B0617" />
+  <title>CEFITIPS — Entra a la universidad de tus sueños</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Rubik:wght@300;400;500;600;700&display=swap" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <script src="js/router.js"></script>
+</head>
+<body>
+
+  <!-- Background aurora layers -->
+  <div class="aurora-bg" aria-hidden="true">
+    <div class="aurora-blob aurora-blob--1"></div>
+    <div class="aurora-blob aurora-blob--2"></div>
+    <div class="aurora-blob aurora-blob--3"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <!-- Skip link for accessibility -->
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <!-- Navbar -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="#" class="logo" aria-label="CEFITIPS inicio">
+        <svg class="logo__mark" width="36" height="36" viewBox="0 0 36 36" aria-hidden="true">
+          <defs>
+            <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#A78BFA" />
+              <stop offset="50%" stop-color="#F43F5E" />
+              <stop offset="100%" stop-color="#22D3EE" />
+            </linearGradient>
+          </defs>
+          <path d="M18 3 L33 11 L33 25 L18 33 L3 25 L3 11 Z" fill="url(#logoGrad)" />
+          <path d="M12 14 L18 18 L24 14 M12 22 L18 18 L24 22" stroke="#0B0617" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <span class="logo__text">CEFI<span class="logo__accent">TIPS</span></span>
+      </a>
+
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#cursos">Cursos</a>
+        <a href="#caracteristicas">Características</a>
+        <a href="#planes">Planes</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#faq">Preguntas</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn--ghost">Iniciar sesión</a>
+        <a href="register.html" class="btn btn--primary">Empezar gratis</a>
+      </div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <a href="#cursos">Cursos</a>
+      <a href="#caracteristicas">Características</a>
+      <a href="#planes">Planes</a>
+      <a href="#testimonios">Testimonios</a>
+      <a href="#faq">Preguntas</a>
+      <div class="mobile-menu__actions">
+        <a href="login.html" class="btn btn--ghost btn--full">Iniciar sesión</a>
+        <a href="register.html" class="btn btn--primary btn--full">Empezar gratis</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__content reveal">
+          <div class="hero__badge">
+            <span class="pulse-dot" aria-hidden="true"></span>
+            Nueva generación de preparación · 2026
+          </div>
+
+          <h1 class="hero__title">
+            Entra a la universidad
+            <span class="gradient-text">de tus sueños</span>
+            sin adivinar.
+          </h1>
+
+          <p class="hero__subtitle">
+            CEFITIPS es la plataforma que combina cursos interactivos, simulacros con preguntas reales y mentores expertos para que domines tu examen de admisión a <strong>UNAM, IPN, UAM y COMIPEMS</strong>.
+          </p>
+
+          <div class="hero__actions">
+            <a href="register.html" class="btn btn--primary btn--lg">
+              Comienza gratis
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="dashboard.html" class="btn btn--glass btn--lg">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+              Ver demo · 1 min
+            </a>
+          </div>
+
+          <!-- Stats row -->
+          <dl class="hero__stats">
+            <div class="stat">
+              <dt>Estudiantes</dt>
+              <dd data-counter="85000">85,000+</dd>
+            </div>
+            <div class="stat">
+              <dt>Tasa de ingreso</dt>
+              <dd data-counter="92" data-suffix="%">92%</dd>
+            </div>
+            <div class="stat">
+              <dt>Preguntas reales</dt>
+              <dd data-counter="25000" data-suffix="+">25,000+</dd>
+            </div>
+          </dl>
+        </div>
+
+        <!-- Hero visual -->
+        <div class="hero__visual reveal" aria-hidden="true">
+          <div class="device-frame">
+            <div class="device-topbar">
+              <span></span><span></span><span></span>
+            </div>
+
+            <div class="device-screen">
+              <div class="screen-card screen-card--progress">
+                <div class="screen-card__head">
+                  <div>
+                    <p class="screen-card__label">Tu progreso · UNAM Área 2</p>
+                    <p class="screen-card__value">78<span class="screen-card__unit">/100</span></p>
+                  </div>
+                  <div class="badge badge--success">+12 esta semana</div>
+                </div>
+                <div class="progress-ring">
+                  <svg viewBox="0 0 120 120">
+                    <circle cx="60" cy="60" r="52" stroke="rgba(255,255,255,0.06)" stroke-width="8" fill="none"/>
+                    <circle class="progress-ring__fill" cx="60" cy="60" r="52" stroke="url(#ringGrad)" stroke-width="8" fill="none" stroke-linecap="round" transform="rotate(-90 60 60)" />
+                    <defs>
+                      <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#A78BFA"/>
+                        <stop offset="100%" stop-color="#F43F5E"/>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="screen-card screen-card--mini">
+                <div class="mini-head">
+                  <span class="mini-icon mini-icon--violet">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                  <div>
+                    <p class="mini-title">Biología celular</p>
+                    <p class="mini-sub">Lección 4 de 12</p>
+                  </div>
+                </div>
+                <div class="mini-bar"><span style="width:34%"></span></div>
+              </div>
+
+              <div class="screen-card screen-card--mini">
+                <div class="mini-head">
+                  <span class="mini-icon mini-icon--pink">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v4H4zM4 10h16v4H4zM4 16h10v4H4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+                  </span>
+                  <div>
+                    <p class="mini-title">Simulacro UNAM 03</p>
+                    <p class="mini-sub">Hoy · 6:00 pm</p>
+                  </div>
+                </div>
+                <span class="pill pill--live">EN VIVO</span>
+              </div>
+
+              <div class="screen-card screen-card--streak">
+                <div class="streak-flame" aria-hidden="true">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M12 2s6 4 6 11a6 6 0 1 1-12 0c0-3 2-4 2-7 0 2 4 3 4-4z" fill="url(#flameG)"/><defs><linearGradient id="flameG" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#F43F5E"/><stop offset="1" stop-color="#F59E0B"/></linearGradient></defs></svg>
+                </div>
+                <div>
+                  <p class="mini-title">Racha de 14 días</p>
+                  <p class="mini-sub">¡Sigue así!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating sticker -->
+          <div class="floating-sticker floating-sticker--1">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6.2 4.5L18.2 22 12 17.3 5.8 22l2.4-8.1L2 9.4h7.6z" fill="#F59E0B"/></svg>
+            <span>Top 1% nacional</span>
+          </div>
+          <div class="floating-sticker floating-sticker--2">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12l5 5L20 7" stroke="#22D3EE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Aprobado</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Universities trust strip -->
+    <section class="trust" aria-label="Universidades que preparamos">
+      <div class="container">
+        <p class="trust__label">Preparamos a los mejores estudiantes para</p>
+        <div class="marquee" aria-hidden="true">
+          <div class="marquee__track">
+            <span class="uni">UNAM</span>
+            <span class="uni-sep">◆</span>
+            <span class="uni">IPN</span>
+            <span class="uni-sep">◆</span>
+            <span class="uni">UAM</span>
+            <span class="uni-sep">◆</span>
+            <span class="uni">COMIPEMS</span>
+            <span class="uni-sep">◆</span>
+            <span class="uni">ITESM</span>
+            <span class="uni-sep">◆</span>
+            <span class="uni">EXANI-II</span>
+            <span class="uni-sep">◆</span>
+            <span class="uni">UNAM</span>
+            <span class="uni-sep">◆</span>
+            <span class="uni">IPN</span>
+            <span class="uni-sep">◆</span>
+            <span class="uni">UAM</span>
+            <span class="uni-sep">◆</span>
+            <span class="uni">COMIPEMS</span>
+            <span class="uni-sep">◆</span>
+            <span class="uni">ITESM</span>
+            <span class="uni-sep">◆</span>
+            <span class="uni">EXANI-II</span>
+            <span class="uni-sep">◆</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="caracteristicas">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Por qué CEFITIPS</span>
+          <h2 class="section-title">Todo lo que necesitas <span class="gradient-text">en un solo lugar</span></h2>
+          <p class="section-sub">Deja las guías desactualizadas. Estudia con un sistema diseñado por estudiantes que ya entraron.</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card reveal" style="--delay:0ms">
+            <div class="feature-icon feature-icon--violet">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Cursos interactivos</h3>
+            <p>Más de 1,200 lecciones en video con quizzes adaptativos que se ajustan a tu nivel en tiempo real.</p>
+          </article>
+
+          <article class="feature-card reveal" style="--delay:80ms">
+            <div class="feature-icon feature-icon--pink">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Simulacros reales</h3>
+            <p>Bancos con más de 25,000 preguntas oficiales extraídas de exámenes anteriores, con cronómetro incluido.</p>
+          </article>
+
+          <article class="feature-card reveal" style="--delay:160ms">
+            <div class="feature-icon feature-icon--cyan">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 1 0 10 10" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Plan personalizado</h3>
+            <p>Nuestra IA crea tu ruta semanal según tus puntos débiles y las fechas reales de tu examen.</p>
+          </article>
+
+          <article class="feature-card reveal" style="--delay:240ms">
+            <div class="feature-icon feature-icon--amber">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Mentores 1-a-1</h3>
+            <p>Sesiones en vivo con estudiantes que ya aprobaron. Resuelven tus dudas cuando las tienes.</p>
+          </article>
+
+          <article class="feature-card reveal" style="--delay:320ms">
+            <div class="feature-icon feature-icon--violet">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 3v18h18M7 15l4-4 4 4 5-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Analítica clara</h3>
+            <p>Dashboards que te muestran exactamente cuántos aciertos te separan de tu carrera meta.</p>
+          </article>
+
+          <article class="feature-card reveal" style="--delay:400ms">
+            <div class="feature-icon feature-icon--pink">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Comunidad activa</h3>
+            <p>Grupos de estudio por carrera con miles de aspirantes comparando resultados y resolviendo juntos.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Courses -->
+    <section class="courses" id="cursos">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Cursos disponibles</span>
+          <h2 class="section-title">Elige tu <span class="gradient-text">examen</span>, nosotros el método.</h2>
+          <p class="section-sub">Programas completos con fechas reales, materiales descargables y seguimiento de tu avance.</p>
+        </div>
+
+        <div class="course-grid">
+          <a href="#" class="course-card course-card--unam reveal" style="--delay:0ms">
+            <div class="course-card__header">
+              <span class="course-tag">Licenciatura</span>
+              <span class="course-duration">6 meses</span>
+            </div>
+            <h3>Examen UNAM</h3>
+            <p>120 reactivos · 4 áreas del conocimiento. Todo el temario oficial cubierto con quizzes por módulo.</p>
+            <div class="course-card__foot">
+              <div class="avatars">
+                <span class="avatar" style="background:#7C3AED"></span>
+                <span class="avatar" style="background:#F43F5E"></span>
+                <span class="avatar" style="background:#22D3EE"></span>
+              </div>
+              <span class="course-enrolled">32,400 aspirantes</span>
+            </div>
+            <div class="course-arrow" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </a>
+
+          <a href="#" class="course-card course-card--ipn reveal" style="--delay:80ms">
+            <div class="course-card__header">
+              <span class="course-tag">Licenciatura</span>
+              <span class="course-duration">5 meses</span>
+            </div>
+            <h3>Examen IPN</h3>
+            <p>140 reactivos · Enfoque en ciencias físico-matemáticas. Simulacros por rama de ingeniería.</p>
+            <div class="course-card__foot">
+              <div class="avatars">
+                <span class="avatar" style="background:#F43F5E"></span>
+                <span class="avatar" style="background:#A78BFA"></span>
+                <span class="avatar" style="background:#10B981"></span>
+              </div>
+              <span class="course-enrolled">18,750 aspirantes</span>
+            </div>
+            <div class="course-arrow" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </a>
+
+          <a href="#" class="course-card course-card--uam reveal" style="--delay:160ms">
+            <div class="course-card__header">
+              <span class="course-tag">Licenciatura</span>
+              <span class="course-duration">4 meses</span>
+            </div>
+            <h3>Examen UAM</h3>
+            <p>Distinto por unidad. Te preparamos para Azcapotzalco, Cuajimalpa, Iztapalapa, Lerma y Xochimilco.</p>
+            <div class="course-card__foot">
+              <div class="avatars">
+                <span class="avatar" style="background:#22D3EE"></span>
+                <span class="avatar" style="background:#F59E0B"></span>
+                <span class="avatar" style="background:#7C3AED"></span>
+              </div>
+              <span class="course-enrolled">9,120 aspirantes</span>
+            </div>
+            <div class="course-arrow" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </a>
+
+          <a href="#" class="course-card course-card--comipems reveal" style="--delay:240ms">
+            <div class="course-card__header">
+              <span class="course-tag">Bachillerato</span>
+              <span class="course-duration">3 meses</span>
+            </div>
+            <h3>COMIPEMS</h3>
+            <p>128 reactivos para entrar a una de las 629 opciones de preparatoria en la Zona Metropolitana.</p>
+            <div class="course-card__foot">
+              <div class="avatars">
+                <span class="avatar" style="background:#F43F5E"></span>
+                <span class="avatar" style="background:#22D3EE"></span>
+                <span class="avatar" style="background:#A78BFA"></span>
+              </div>
+              <span class="course-enrolled">24,870 aspirantes</span>
+            </div>
+            <div class="course-arrow" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </a>
+
+          <a href="#" class="course-card course-card--exani reveal" style="--delay:320ms">
+            <div class="course-card__header">
+              <span class="course-tag">Licenciatura</span>
+              <span class="course-duration">4 meses</span>
+            </div>
+            <h3>EXANI-II (CENEVAL)</h3>
+            <p>Pensamiento matemático, analítico y comprensión lectora. Módulos específicos por universidad.</p>
+            <div class="course-card__foot">
+              <div class="avatars">
+                <span class="avatar" style="background:#10B981"></span>
+                <span class="avatar" style="background:#7C3AED"></span>
+                <span class="avatar" style="background:#F43F5E"></span>
+              </div>
+              <span class="course-enrolled">12,300 aspirantes</span>
+            </div>
+            <div class="course-arrow" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </a>
+
+          <a href="#" class="course-card course-card--intensivo reveal" style="--delay:400ms">
+            <div class="course-card__header">
+              <span class="course-tag course-tag--hot">Popular</span>
+              <span class="course-duration">30 días</span>
+            </div>
+            <h3>Intensivo 30 días</h3>
+            <p>Recta final. Resumen ejecutivo, preguntas trampa y estrategia minuto a minuto para el día del examen.</p>
+            <div class="course-card__foot">
+              <div class="avatars">
+                <span class="avatar" style="background:#F59E0B"></span>
+                <span class="avatar" style="background:#F43F5E"></span>
+                <span class="avatar" style="background:#22D3EE"></span>
+              </div>
+              <span class="course-enrolled">6,890 aspirantes</span>
+            </div>
+            <div class="course-arrow" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="how">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Cómo funciona</span>
+          <h2 class="section-title">De cero a aprobado en <span class="gradient-text">3 pasos</span></h2>
+        </div>
+
+        <div class="steps">
+          <div class="step reveal" style="--delay:0ms">
+            <div class="step__num">01</div>
+            <h3>Haz tu diagnóstico</h3>
+            <p>Un examen inicial de 30 preguntas detecta exactamente en qué temas fallas y cuál es tu probabilidad de ingreso hoy.</p>
+          </div>
+          <div class="step reveal" style="--delay:120ms">
+            <div class="step__num">02</div>
+            <h3>Recibe tu plan</h3>
+            <p>Una ruta semanal diseñada con IA: cursos, lecturas, ejercicios y fechas clave. Se adapta cada semana a tu avance.</p>
+          </div>
+          <div class="step reveal" style="--delay:240ms">
+            <div class="step__num">03</div>
+            <h3>Estudia y domina</h3>
+            <p>Simulacros oficiales, mentorías y comunidad. Llegas al examen real con la confianza de quien ya lo presentó 20 veces.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonios">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Historias reales</span>
+          <h2 class="section-title">Miles ya entraron. <span class="gradient-text">Tú también puedes.</span></h2>
+        </div>
+
+        <div class="testimonial-grid">
+          <figure class="testimonial-card reveal" style="--delay:0ms">
+            <div class="testimonial-stars" aria-label="5 de 5 estrellas">
+              <svg viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l2.4 7.4H22l-6.2 4.5L18.2 22 12 17.3 5.8 22l2.4-8.1L2 9.4h7.6z"/></svg>
+              <svg viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l2.4 7.4H22l-6.2 4.5L18.2 22 12 17.3 5.8 22l2.4-8.1L2 9.4h7.6z"/></svg>
+              <svg viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l2.4 7.4H22l-6.2 4.5L18.2 22 12 17.3 5.8 22l2.4-8.1L2 9.4h7.6z"/></svg>
+              <svg viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l2.4 7.4H22l-6.2 4.5L18.2 22 12 17.3 5.8 22l2.4-8.1L2 9.4h7.6z"/></svg>
+              <svg viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l2.4 7.4H22l-6.2 4.5L18.2 22 12 17.3 5.8 22l2.4-8.1L2 9.4h7.6z"/></svg>
+            </div>
+            <blockquote>"Empecé con 48 aciertos en el diagnóstico y terminé con 112 en el examen real. Los simulacros de CEFITIPS son <strong>idénticos</strong> al formato UNAM."</blockquote>
+            <figcaption class="testimonial-foot">
+              <div class="testimonial-avatar" style="background:linear-gradient(135deg,#7C3AED,#F43F5E)">XR</div>
+              <div>
+                <p class="testimonial-name">Ximena Ríos</p>
+                <p class="testimonial-role">Medicina · UNAM 2025</p>
+              </div>
+            </figcaption>
+          </figure>
+
+          <figure class="testimonial-card reveal" style="--delay:120ms">
+            <div class="testimonial-stars" aria-label="5 de 5 estrellas">
+              <svg viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l2.4 7.4H22l-6.2 4.5L18.2 22 12 17.3 5.8 22l2.4-8.1L2 9.4h7.6z"/></svg>
+              <svg viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l2.4 7.4H22l-6.2 4.5L18.2 22 12 17.3 5.8 22l2.4-8.1L2 9.4h7.6z"/></svg>
+              <svg viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l2.4 7.4H22l-6.2 4.5L18.2 22 12 17.3 5.8 22l2.4-8.1L2 9.4h7.6z"/></svg>
+              <svg viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l2.4 7.4H22l-6.2 4.5L18.2 22 12 17.3 5.8 22l2.4-8.1L2 9.4h7.6z"/></svg>
+              <svg viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l2.4 7.4H22l-6.2 4.5L18.2 22 12 17.3 5.8 22l2.4-8.1L2 9.4h7.6z"/></svg>
+            </div>
+            <blockquote>"El plan personalizado me salvó. Trabajo medio tiempo y no tenía horario fijo para estudiar. La app acomodaba mis sesiones en los huecos libres."</blockquote>
+            <figcaption class="testimonial-foot">
+              <div class="testimonial-avatar" style="background:linear-gradient(135deg,#22D3EE,#7C3AED)">DH</div>
+              <div>
+                <p class="testimonial-name">Diego Hernández</p>
+                <p class="testimonial-role">Ing. Mecatrónica · IPN 2025</p>
+              </div>
+            </figcaption>
+          </figure>
+
+          <figure class="testimonial-card reveal" style="--delay:240ms">
+            <div class="testimonial-stars" aria-label="5 de 5 estrellas">
+              <svg viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l2.4 7.4H22l-6.2 4.5L18.2 22 12 17.3 5.8 22l2.4-8.1L2 9.4h7.6z"/></svg>
+              <svg viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l2.4 7.4H22l-6.2 4.5L18.2 22 12 17.3 5.8 22l2.4-8.1L2 9.4h7.6z"/></svg>
+              <svg viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l2.4 7.4H22l-6.2 4.5L18.2 22 12 17.3 5.8 22l2.4-8.1L2 9.4h7.6z"/></svg>
+              <svg viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l2.4 7.4H22l-6.2 4.5L18.2 22 12 17.3 5.8 22l2.4-8.1L2 9.4h7.6z"/></svg>
+              <svg viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l2.4 7.4H22l-6.2 4.5L18.2 22 12 17.3 5.8 22l2.4-8.1L2 9.4h7.6z"/></svg>
+            </div>
+            <blockquote>"Mi mentora también entró a la UAM hace dos años. Saber que alguien ya recorrió el camino <strong>cambió mi manera de estudiar</strong> por completo."</blockquote>
+            <figcaption class="testimonial-foot">
+              <div class="testimonial-avatar" style="background:linear-gradient(135deg,#F43F5E,#F59E0B)">VM</div>
+              <div>
+                <p class="testimonial-name">Valeria Márquez</p>
+                <p class="testimonial-role">Diseño · UAM Xochimilco 2025</p>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing" id="planes">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Planes simples</span>
+          <h2 class="section-title">Invierte en tu <span class="gradient-text">futuro</span></h2>
+          <p class="section-sub">Prueba 7 días gratis. Cancela cuando quieras. Sin letras chiquitas.</p>
+        </div>
+
+        <div class="plans">
+          <article class="plan reveal" style="--delay:0ms">
+            <header class="plan__head">
+              <h3>Starter</h3>
+              <p>Para empezar a prepararte sin costo.</p>
+            </header>
+            <div class="plan__price">
+              <span class="price">$0</span>
+              <span class="price-unit">/siempre</span>
+            </div>
+            <ul class="plan__features">
+              <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> 20 lecciones introductorias</li>
+              <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> 2 simulacros al mes</li>
+              <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Acceso a comunidad</li>
+              <li class="plan__feature--off"><svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Mentorías 1-a-1</li>
+              <li class="plan__feature--off"><svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Plan personalizado</li>
+            </ul>
+            <a href="register.html" class="btn btn--glass btn--full">Comienza gratis</a>
+          </article>
+
+          <article class="plan plan--featured reveal" style="--delay:100ms">
+            <div class="plan__badge">Más elegido</div>
+            <header class="plan__head">
+              <h3>Pro</h3>
+              <p>Todo lo que necesitas para aprobar tu examen.</p>
+            </header>
+            <div class="plan__price">
+              <span class="price">$299</span>
+              <span class="price-unit">/mes</span>
+            </div>
+            <ul class="plan__features">
+              <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Acceso ilimitado a todos los cursos</li>
+              <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Simulacros reales sin límite</li>
+              <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Plan personalizado con IA</li>
+              <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> 4 mentorías grupales/mes</li>
+              <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Materiales descargables</li>
+            </ul>
+            <a href="register.html" class="btn btn--primary btn--full">Empezar 7 días gratis</a>
+          </article>
+
+          <article class="plan reveal" style="--delay:200ms">
+            <header class="plan__head">
+              <h3>Elite</h3>
+              <p>Preparación premium con atención dedicada.</p>
+            </header>
+            <div class="plan__price">
+              <span class="price">$699</span>
+              <span class="price-unit">/mes</span>
+            </div>
+            <ul class="plan__features">
+              <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Todo lo incluido en Pro</li>
+              <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Mentor personal 1-a-1 semanal</li>
+              <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Revisión de ensayos ilimitada</li>
+              <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Garantía: aprueba o reembolso</li>
+              <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Acceso anticipado a novedades</li>
+            </ul>
+            <a href="register.html" class="btn btn--glass btn--full">Elegir Elite</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+      <div class="container faq__inner">
+        <div class="section-head section-head--left reveal">
+          <span class="eyebrow">Dudas frecuentes</span>
+          <h2 class="section-title">¿Algo que quieras <span class="gradient-text">preguntar</span>?</h2>
+          <p class="section-sub">Si tu duda no está aquí, escríbenos en <a href="#" class="inline-link">hola@cefitips.mx</a> y te respondemos en menos de 24 h.</p>
+        </div>
+
+        <div class="faq__list reveal">
+          <details class="faq-item">
+            <summary>
+              ¿Qué pasa después de los 7 días gratis?
+              <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </summary>
+            <div class="faq-answer">Si decides continuar, se cobra el plan elegido. Si no, el acceso simplemente pausa y no se te cobra nada. Te avisamos 48 h antes del cierre del trial.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              ¿Puedo cambiar de plan después?
+              <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </summary>
+            <div class="faq-answer">Sí. Puedes subir o bajar de plan en cualquier momento desde tu panel. El cobro se ajusta de forma proporcional.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              ¿Los simulacros son exactamente iguales al examen real?
+              <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </summary>
+            <div class="faq-answer">Replicamos el formato, el número de reactivos, el tiempo y los tipos de preguntas oficiales. Nuestro banco se alimenta de exámenes pasados y se actualiza cada ciclo.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              ¿Qué dispositivos son compatibles?
+              <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </summary>
+            <div class="faq-answer">CEFITIPS funciona en cualquier navegador moderno (Chrome, Safari, Firefox, Edge) y tenemos apps nativas para iOS y Android. Tu progreso se sincroniza en todos.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              ¿Ofrecen beca o descuento?
+              <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </summary>
+            <div class="faq-answer">Tenemos un programa de becas CEFI para estudiantes con promedio de 9.0+ y situación económica limitada. Solicítala desde tu panel una vez registrado.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              ¿Cómo funciona la garantía del plan Elite?
+              <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </summary>
+            <div class="faq-answer">Si cumpliste con tu plan de estudio (al menos 80% de las actividades) y no apruebas, te devolvemos el 100% de lo pagado. Así de simple.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+      <div class="container">
+        <div class="cta-box reveal">
+          <div class="cta-glow" aria-hidden="true"></div>
+          <span class="eyebrow">Empieza hoy</span>
+          <h2>Tu carrera soñada está a <span class="gradient-text">un clic</span></h2>
+          <p>Únete a más de 85,000 estudiantes que cambiaron su futuro con CEFITIPS. Sin tarjeta. Sin compromisos. Solo resultados.</p>
+          <div class="cta-actions">
+            <a href="register.html" class="btn btn--primary btn--lg">Crear mi cuenta gratis</a>
+            <a href="login.html" class="btn btn--glass btn--lg">Ya tengo cuenta</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#" class="logo">
+          <svg class="logo__mark" width="32" height="32" viewBox="0 0 36 36" aria-hidden="true">
+            <path d="M18 3 L33 11 L33 25 L18 33 L3 25 L3 11 Z" fill="url(#logoGrad)" />
+            <path d="M12 14 L18 18 L24 14 M12 22 L18 18 L24 22" stroke="#0B0617" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+          <span class="logo__text">CEFI<span class="logo__accent">TIPS</span></span>
+        </a>
+        <p class="footer__tagline">Tu puerta a la universidad, con tecnología y mentores que sí la entienden.</p>
+        <div class="socials">
+          <a href="https://www.youtube.com/watch?v=Cpn1NmlK_O0" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M16 3v3a5 5 0 0 0 5 5v3a8 8 0 0 1-5-1.8V16a6 6 0 1 1-6-6v3a3 3 0 1 0 3 3V3h3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="4" stroke="currentColor" stroke-width="1.8"/><path d="M10 9l5 3-5 3V9z" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="Discord"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M7 8c2-1 8-1 10 0l1 10c-1 1-3 2-5 2l-1-2M7 8l-1 10c1 1 3 2 5 2l1-2M7 8s2 2 5 2 5-2 5-2M9 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2zM15 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer__cols">
+        <div class="footer-col">
+          <h4>Plataforma</h4>
+          <a href="#">Cursos</a>
+          <a href="#">Simulacros</a>
+          <a href="#">Mentorías</a>
+          <a href="#">App móvil</a>
+        </div>
+        <div class="footer-col">
+          <h4>Recursos</h4>
+          <a href="#">Blog</a>
+          <a href="#">Guía UNAM</a>
+          <a href="#">Guía IPN</a>
+          <a href="#">Centro de ayuda</a>
+        </div>
+        <div class="footer-col">
+          <h4>Empresa</h4>
+          <a href="#">Sobre CEFITIPS</a>
+          <a href="#">Trabaja con nosotros</a>
+          <a href="#">Prensa</a>
+          <a href="#">Contacto</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="#">Términos</a>
+          <a href="#">Privacidad</a>
+          <a href="#">Cookies</a>
+          <a href="#">Aviso legal</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bottom container">
+      <p>© 2026 CEFITIPS · Hecho con pasión en México.</p>
+      <p>v1.0 — Éxito asegurado.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
