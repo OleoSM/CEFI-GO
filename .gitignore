@@ -10,6 +10,13 @@
 .env.development
 .env.production
 *.pem
+# Archivos de transferencia temporal de credenciales — NUNCA commitear
+keys.txt
+keys.*.txt
+secrets.txt
+credentials.txt
+*.secret
+*.secrets
 
 # --- Node / Next.js (para cuando migremos) ---
 node_modules/
