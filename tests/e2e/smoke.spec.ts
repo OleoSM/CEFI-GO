@@ -2,5 +2,5 @@ import { test, expect } from '@playwright/test';
 
 test('home loads', async ({ page }) => {
   await page.goto('/');
-  await expect(page.locator('main')).toContainText('CEFITIPS');
+  await expect(page.locator('main')).toContainText('CEFI-GO');
 });

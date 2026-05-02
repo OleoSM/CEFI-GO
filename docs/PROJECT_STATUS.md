@@ -1,10 +1,12 @@
-# Plataforma_UNITIPS / CEFITIPS — Estado del Proyecto
+# Plataforma_UNITIPS / CEFI-GO — Estado del Proyecto
 
 > Documento vivo. Actualizar al final de cada sesión de trabajo para que la siguiente conversación retome contexto sin perder hilo.
 
 ## Resumen
 
-Convertir el frontend estático ya construido (marca **CEFITIPS**, directorio `Plataforma_UNITIPS`) en una clonación funcional de [unitips.mx](https://www.unitips.mx).
+Convertir el frontend estático ya construido (marca **CEFI-GO**, directorio `Plataforma_UNITIPS`) en una clonación funcional de [unitips.mx](https://www.unitips.mx).
+
+> **Rebrand 2026-05-01:** la marca cambió de CEFITIPS → **CEFI-GO**. El frontend HTML legacy todavía dice CEFITIPS y se actualizará al migrar cada página a Next.js en Fases 8 y 9. El scaffold Next.js, `package.json` y este doc ya usan CEFI-GO.
 
 - **Stack elegido:** Supabase (DB + Auth + Storage) · despliegue tentativo en Vercel
 - **Modelo de pago:** transferencia bancaria con validación manual por admin (NO pasarela)
@@ -32,9 +34,17 @@ La seguridad se aplica **transversalmente** en cada uno, no solo al final.
 
 ## Sesión actual
 
-**Fecha:** 2026-04-26
+**Fecha:** 2026-05-01
 **Sub-proyecto activo:** #1 Cimientos
-**Etapa:** plan de implementación escrito y commiteado. Ejecutando con `superpowers:executing-plans`. Fase 1 (scaffold Next.js) en curso; Fase 0 (cuentas Supabase/Upstash/GitHub) pendiente del usuario.
+**Etapa:** Fase 1 (scaffold Next.js + Vitest + Playwright) commiteada. Fase 0 (cuentas externas) parcial: Supabase creado como `cefigo`; Upstash y repo GitHub pendientes. Próximo: completar Fase 0 y arrancar Fase 2 (migraciones SQL).
+
+### Recursos externos (nombres reales)
+
+- **Supabase project:** `cefigo` (creado, pendiente configuración: URL Configuration, Email provider, .env.local)
+- **Upstash Redis:** pendiente crear (nombre sugerido `cefigo-rate-limit`)
+- **GitHub repo:** pendiente crear (nombre sugerido `plataforma-cefigo`, privado, cuenta `OleoSM`)
+
+> Nota: el plan original (`docs/superpowers/plans/2026-04-26-cimientos-implementation.md`) usa los nombres antiguos `cefitips-prod` / `cefitips-rate-limit` / `plataforma-cefitips`. Los nombres reales son los de arriba (`cefigo`).
 
 ### Decisiones tomadas
 
