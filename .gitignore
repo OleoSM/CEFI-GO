@@ -62,6 +62,9 @@ desktop.ini
 *.swo
 *~
 
+# --- Superpowers brainstorm sessions ---
+.superpowers/
+
 # --- Misc ---
 *.tmp
 *.bak
