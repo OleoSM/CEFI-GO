@@ -1,15 +1,28 @@
-import type { Metadata } from 'next';
-import './globals.css';
+import type { Metadata } from "next";
+import { Outfit, Rubik } from "next/font/google";
+import "./globals.css";
+
+const outfit = Outfit({ subsets: ["latin"], variable: "--font-display" });
+const rubik = Rubik({ subsets: ["latin"], variable: "--font-body" });
 
 export const metadata: Metadata = {
-  title: 'CEFI-GO — Entra a la universidad de tus sueños',
-  description: 'Plataforma de preparación para examen de admisión a UNAM, IPN, UAM y COMIPEMS.',
+  title: "CEFITIPS — Entra a la universidad de tus sueños",
+  description:
+    "La plataforma #1 en México para preparar tu examen de admisión a UNAM, IPN, UAM y COMIPEMS.",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="es">
-      <body>{children}</body>
+    <html lang="es" className="dark">
+      <body
+        className={`${outfit.variable} ${rubik.variable} bg-[#0B0617] text-white antialiased`}
+      >
+        {children}
+      </body>
     </html>
   );
 }
