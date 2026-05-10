@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Logo from "./Logo";
 
 interface NavItem {
@@ -95,7 +95,7 @@ const navSections: NavSection[] = [
     title: "Mi progreso",
     items: [
       { href: "/analytics", label: "Analítica", icon: <ChartIcon /> },
-      { href: "/achievements", label: "Logros", icon: <TrophyIcon /> },
+      { href: "/profile", label: "Logros", icon: <TrophyIcon /> },
       { href: "/resources", label: "Recursos", icon: <ResourcesIcon /> },
     ],
   },
@@ -115,6 +115,7 @@ interface SidebarProps {
 
 export default function Sidebar({ open, onClose }: SidebarProps) {
   const pathname = usePathname();
+  const router = useRouter();
 
   return (
     <aside className={`sidebar ${open ? "is-open" : ""}`}>
@@ -158,7 +159,10 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
           <p className="px-3 mb-1 text-[11px] font-semibold uppercase tracking-widest text-white/30">
             &nbsp;
           </p>
-          <button className="nav-item w-full text-left text-red-400 hover:text-red-300 hover:bg-red-500/10">
+          <button
+            className="nav-item w-full text-left text-red-400 hover:text-red-300 hover:bg-red-500/10"
+            onClick={() => { onClose(); router.push("/login"); }}
+          >
             <LogoutIcon />
             Cerrar sesión
           </button>
@@ -175,7 +179,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
             Desbloquea mentores en vivo y todos los simulacros
           </p>
           <Link
-            href="/plans"
+            href="/#planes"
             className="block text-center text-xs font-bold py-1.5 px-3 rounded-lg bg-gradient-to-r from-violet-600 to-pink-500 text-white hover:opacity-90 transition-opacity"
           >
             Ver planes

@@ -1,11 +1,18 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Logo from "@/components/layout/Logo";
 
 export default function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false);
+  const router = useRouter();
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    router.push("/dashboard");
+  }
 
   return (
     <div className="auth-layout">
@@ -26,7 +33,7 @@ export default function RegisterPage() {
             Sin tarjeta de crédito. Empieza en menos de 2 minutos.
           </p>
 
-          <form noValidate className="space-y-4">
+          <form noValidate className="space-y-4" onSubmit={handleSubmit}>
             {/* Name */}
             <div className="space-y-1.5">
               <label htmlFor="name" className="text-sm font-medium text-white/70">

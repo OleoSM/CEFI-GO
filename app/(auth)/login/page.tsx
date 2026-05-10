@@ -1,11 +1,18 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Logo from "@/components/layout/Logo";
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
+  const router = useRouter();
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    router.push("/dashboard");
+  }
 
   return (
     <div className="auth-layout">
@@ -26,7 +33,7 @@ export default function LoginPage() {
             Entra a tu cuenta para retomar tu preparación.
           </p>
 
-          <form noValidate className="space-y-5">
+          <form noValidate className="space-y-5" onSubmit={handleSubmit}>
             {/* Email */}
             <div className="space-y-1.5">
               <label htmlFor="email" className="text-sm font-medium text-white/70">
@@ -123,6 +130,7 @@ export default function LoginPage() {
             {/* Google button */}
             <button
               type="button"
+              onClick={() => router.push("/dashboard")}
               className="w-full flex items-center justify-center gap-3 py-3 px-4 rounded-xl bg-white/5 border border-white/10 text-sm font-medium text-white/80 hover:bg-white/8 hover:border-white/15 transition-all"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
