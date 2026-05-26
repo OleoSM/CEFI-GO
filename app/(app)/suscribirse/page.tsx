@@ -103,7 +103,7 @@ export default function SuscribirsePage() {
       <div className="max-w-[700px] mx-auto">
         {/* Back */}
         <button
-          onClick={() => router.back()}
+          onClick={() => { if (typeof window !== 'undefined' && window.history.length > 1) router.back(); else router.push('/dashboard'); }}
           className="flex items-center gap-1.5 text-sm text-white/40 hover:text-white/70
             transition-colors mb-8 focus-visible:outline-none focus-visible:ring-2
             focus-visible:ring-violet-400 rounded"
@@ -128,7 +128,7 @@ export default function SuscribirsePage() {
               key={plan.id}
               onClick={() => setSelected(plan.id)}
               className={[
-                'text-left transition-all duration-200 rounded-2xl p-0',
+                'text-left transition-all duration-200 rounded-2xl',
                 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500',
                 selected === plan.id ? 'opacity-100' : selected ? 'opacity-50' : 'opacity-100',
               ].join(' ')}
@@ -141,7 +141,7 @@ export default function SuscribirsePage() {
                   'relative p-6 rounded-2xl h-full transition-all duration-200',
                   selected === plan.id ? 'ring-2 ring-violet-500' : '',
                 ].join(' ')}
-                style={plan.featured ? { background: 'rgba(12,6,28,0.75)', borderColor: 'transparent' } : {}}
+                style={plan.featured ? { background: 'rgba(12,6,28,0.75)', borderColor: 'transparent' } : undefined}
               >
                 {plan.badge && (
                   <span className="inline-block mb-3 px-3 py-1 rounded-full text-xs font-semibold
@@ -158,7 +158,7 @@ export default function SuscribirsePage() {
 
                 <ul className="space-y-2">
                   {plan.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2 text-sm text-white/75 text-violet-400">
+                    <li key={f} className="flex items-start gap-2 text-sm">
                       <CheckIcon />
                       <span className="text-white/75">{f}</span>
                     </li>
@@ -167,10 +167,7 @@ export default function SuscribirsePage() {
 
                 {selected === plan.id && (
                   <div className="mt-5 flex items-center gap-1.5 text-xs font-semibold text-violet-300">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                      <path d="M5 12l5 5L20 7" stroke="currentColor" strokeWidth="2.5"
-                        strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
+                    <CheckIcon />
                     Seleccionado
                   </div>
                 )}
@@ -183,7 +180,6 @@ export default function SuscribirsePage() {
         <button
           onClick={handleCheckout}
           disabled={!selected}
-          aria-disabled={!selected}
           className={[
             'w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl',
             'font-semibold text-base transition-all duration-200',
