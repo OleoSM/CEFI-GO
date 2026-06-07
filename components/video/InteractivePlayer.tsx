@@ -70,8 +70,8 @@ export default function InteractivePlayer({ videoSrc, vimeoId, lessonId, checkpo
         if (activeCheckpointRef.current) return;
         const triggered = findTriggered(seconds);
         if (triggered) {
-          player.pause();
           activeCheckpointRef.current = triggered;
+          player.pause();
           setActiveCheckpoint(triggered);
         }
       });

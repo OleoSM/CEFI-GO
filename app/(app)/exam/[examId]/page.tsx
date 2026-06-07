@@ -42,6 +42,14 @@ export default function ExamPage({ params }: PageProps) {
   const [finished, setFinished] = useState(false);
 
   useEffect(() => {
+    setTimeLeft(totalSeconds);
+    setAnswers({});
+    setMarked(new Set());
+    setCurrent(0);
+    setFinished(false);
+  }, [examId]); // reset all state when exam changes
+
+  useEffect(() => {
     if (finished) return;
     const interval = setInterval(() => {
       setTimeLeft((t) => {
