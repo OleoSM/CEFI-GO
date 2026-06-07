@@ -1,8 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Logo from "./Logo";
+import { logout } from "@/lib/actions/auth";
+import { getInitials } from "@/lib/utils/initials";
+import { useProfile } from "@/components/providers/ProfileProvider";
 
 interface NavItem {
   href: string;
@@ -114,8 +118,16 @@ interface SidebarProps {
 }
 
 export default function Sidebar({ open, onClose }: SidebarProps) {
-  const pathname = usePathname();
-  const router = useRouter();
+  const profile   = useProfile();
+  const pathname  = usePathname();
+  const [loading, setLoading] = useState(false);
+  const initials  = getInitials(profile.full_name);
+
+  async function handleLogout() {
+    setLoading(true);
+    onClose();
+    await logout();
+  }
 
   return (
     <aside className={`sidebar ${open ? "is-open" : ""}`}>
@@ -124,8 +136,28 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
         <Logo />
       </div>
 
+      {/* User mini-card */}
+      <div className="mx-3 mt-3 p-3 rounded-xl bg-white/4 border border-white/8 flex items-center gap-3">
+        <div className="w-9 h-9 rounded-full bg-gradient-to-br from-violet-500 to-pink-500 flex items-center justify-center text-xs font-bold text-white shrink-0 select-none">
+          {initials}
+        </div>
+        <div className="min-w-0 flex-1">
+          <p className="text-sm font-semibold truncate leading-snug">{profile.full_name}</p>
+          <div className="flex items-center gap-1.5 mt-0.5">
+            {profile.is_pro ? (
+              <span className="text-[10px] text-violet-400 font-semibold">✦ Pro</span>
+            ) : (
+              <span className="text-[10px] text-white/30">Gratuito</span>
+            )}
+            {profile.role === "admin" && (
+              <span className="text-[10px] text-violet-400/60">· Admin</span>
+            )}
+          </div>
+        </div>
+      </div>
+
       {/* Nav sections */}
-      <nav className="flex-1 p-3 space-y-5 overflow-y-auto" aria-label="Navegación principal">
+      <nav className="flex-1 p-3 space-y-5 overflow-y-auto mt-2" aria-label="Navegación principal">
         {navSections.map((section) => (
           <div key={section.title}>
             <p className="px-3 mb-1 text-[11px] font-semibold uppercase tracking-widest text-white/30">
@@ -154,38 +186,61 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
           </div>
         ))}
 
+        {/* Admin link */}
+        {profile.role === "admin" && (
+          <div>
+            <p className="px-3 mb-1 text-[11px] font-semibold uppercase tracking-widest text-violet-400/40">
+              Admin
+            </p>
+            <ul className="space-y-0.5">
+              <li>
+                <Link
+                  href="/admin"
+                  className={`nav-item ${pathname.startsWith("/admin") ? "is-active" : ""}`}
+                  onClick={onClose}
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                  </svg>
+                  Panel Admin
+                </Link>
+              </li>
+            </ul>
+          </div>
+        )}
+
         {/* Logout */}
         <div>
-          <p className="px-3 mb-1 text-[11px] font-semibold uppercase tracking-widest text-white/30">
-            &nbsp;
-          </p>
           <button
-            className="nav-item w-full text-left text-red-400 hover:text-red-300 hover:bg-red-500/10"
-            onClick={() => { onClose(); router.push("/login"); }}
+            className="nav-item w-full text-left text-red-400 hover:text-red-300 hover:bg-red-500/10 disabled:opacity-40"
+            onClick={handleLogout}
+            disabled={loading}
           >
             <LogoutIcon />
-            Cerrar sesión
+            {loading ? "Cerrando sesión..." : "Cerrar sesión"}
           </button>
         </div>
       </nav>
 
       {/* Upgrade banner */}
-      <div className="p-3 mt-auto">
-        <div className="rounded-xl p-4 bg-gradient-to-br from-violet-600/20 to-pink-600/10 border border-violet-500/20">
-          <p className="text-xs font-bold text-white/90 mb-1">
-            🚀 Sube a Elite
-          </p>
-          <p className="text-[11px] text-white/50 mb-3">
-            Desbloquea mentores en vivo y todos los simulacros
-          </p>
-          <Link
-            href="/#planes"
-            className="block text-center text-xs font-bold py-1.5 px-3 rounded-lg bg-gradient-to-r from-violet-600 to-pink-500 text-white hover:opacity-90 transition-opacity"
-          >
-            Ver planes
-          </Link>
+      {!profile.is_pro && (
+        <div className="p-3 mt-auto">
+          <div className="rounded-xl p-4 bg-gradient-to-br from-violet-600/20 to-pink-600/10 border border-violet-500/20">
+            <p className="text-xs font-bold text-white/90 mb-1">
+              🚀 Sube a Elite
+            </p>
+            <p className="text-[11px] text-white/50 mb-3">
+              Desbloquea mentores en vivo y todos los simulacros
+            </p>
+            <Link
+              href="/suscribirse"
+              className="block text-center text-xs font-bold py-1.5 px-3 rounded-lg bg-gradient-to-r from-violet-600 to-pink-500 text-white hover:opacity-90 transition-opacity"
+            >
+              Ver planes
+            </Link>
+          </div>
         </div>
-      </div>
+      )}
     </aside>
   );
 }
