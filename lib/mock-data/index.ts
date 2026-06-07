@@ -151,3 +151,12 @@ export type {
   CourseExam,
   StudyResource,
 } from "./unam-course";
+
+export {
+  adminStats,
+  mockStudents,
+  mockPayments,
+  planLabels,
+  planColors,
+} from "./admin-mock";
+export type { MockStudent, MockPayment, AdminStats } from "./admin-mock";
