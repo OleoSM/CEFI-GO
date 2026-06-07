@@ -31,7 +31,7 @@ export const mockCourses = [
     tag: "Matemáticas",
     duration: "Módulo 2",
     enrolled: "18,750",
-    gradient: "from-cyan-500 to-violet-600",
+    gradient: "from-blue-500 to-violet-600",
     progress: 20,
     module: "Módulo 2",
     lesson: "Funciones trigonométricas",
@@ -136,3 +136,18 @@ export const examQuestions = [
     correct: 2,
   },
 ];
+
+export {
+  unamModules,
+  videoCheckpoints,
+  unamExam,
+  unamResources,
+} from "./unam-course";
+export type {
+  Lesson,
+  Module,
+  VideoCheckpoint,
+  ExamQuestion,
+  CourseExam,
+  StudyResource,
+} from "./unam-course";
