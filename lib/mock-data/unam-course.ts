@@ -56,7 +56,7 @@ export interface CourseExam {
 export interface StudyResource {
   id: string;
   title: string;
-  type: "PDF" | "PPT" | "Guía";
+  type: "PDF" | "PPT" | "Guía" | "Imagen";
   subject: string;
   description: string;
   fileSize: string;
@@ -94,7 +94,7 @@ export const unamModules: Module[] = [
         duration: "25 min",
         done: false,
         current: true,
-        videoSrc: "/videos/placeholder.mp4",
+        videoSrc: "/videos/tu-video.mp4",
         description:
           "Mitocondria, retículo endoplásmico, aparato de Golgi, lisosomas y ribosomas: función y estructura. Este tema representa el 12% de Biología en el examen UNAM.",
       },
@@ -545,12 +545,12 @@ export const unamResources: StudyResource[] = [
   },
   {
     id: "r06",
-    title: "Historia de México — Línea del tiempo",
-    type: "PPT",
+    title: "Guerra y Revolución — Historia de México",
+    type: "PDF",
     subject: "Historia",
-    description: "Desde la época prehispánica hasta la actualidad. Eventos clave, personajes y fechas con imágenes.",
-    fileSize: "12.1 MB",
-    url: "#",
+    description: "Análisis del período revolucionario mexicano: causas, actores, batallas clave y consecuencias. Material de apoyo para el examen UNAM.",
+    fileSize: "7.4 MB",
+    url: "/recursos/Guerra_y_Revolución.pdf",
   },
   {
     id: "r07",
@@ -569,5 +569,14 @@ export const unamResources: StudyResource[] = [
     description: "Banco de preguntas con respuesta y explicación detallada. Organizado por tema y dificultad.",
     fileSize: "5.0 MB",
     url: "#",
+  },
+  {
+    id: "r09",
+    title: "Infografía — Línea del tiempo UNAM",
+    type: "Imagen",
+    subject: "General",
+    description: "Infografía visual con los temas, porcentajes y frecuencia de aparición en los exámenes UNAM de los últimos 5 años.",
+    fileSize: "1.4 MB",
+    url: "/recursos/Infografia.png",
   },
 ];

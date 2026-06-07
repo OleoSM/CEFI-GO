@@ -11,6 +11,7 @@ const RESOURCE_BADGE: Record<string, string> = {
   PDF: "text-pink-400 bg-pink-500/10 border-pink-500/20",
   PPT: "text-amber-400 bg-amber-500/10 border-amber-500/20",
   Guía: "text-violet-400 bg-violet-500/10 border-violet-500/20",
+  Imagen: "text-cyan-400 bg-cyan-500/10 border-cyan-500/20",
 };
 
 function ResourceIcon({ type }: { type: string }) {
@@ -24,6 +25,14 @@ function ResourceIcon({ type }: { type: string }) {
     return (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="11" y2="16"/>
+      </svg>
+    );
+  if (type === "Imagen")
+    return (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+        <circle cx="8.5" cy="8.5" r="1.5"/>
+        <polyline points="21 15 16 10 5 21"/>
       </svg>
     );
   return (
@@ -262,7 +271,7 @@ export default function CourseTabs({ slug, modules }: Props) {
                   className="btn btn--ghost text-sm text-center"
                   onClick={(e) => e.preventDefault()}
                 >
-                  Descargar
+                  {resource.type === "Imagen" ? "Ver imagen" : "Descargar"}
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                     <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
