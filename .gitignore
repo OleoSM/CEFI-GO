@@ -68,5 +68,12 @@ desktop.ini
 # --- Misc ---
 *.tmp
 *.bak
+# Binarios y media — no versionar
 *.mp4
+*.pdf
 public/videos/
+public/examenes/
+public/recursos/
+public/logos/
+assets/
+contenido
