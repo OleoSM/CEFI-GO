@@ -791,3 +791,6 @@
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(167,139,250,0.35);
 }
+
+/* Vimeo iframe fill */
+.vimeo-container iframe { position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; }

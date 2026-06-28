@@ -1,3 +1,23 @@
+export const mockProgress = {
+  unidades:    { done: 8,  total: 20 },
+  examenes:    { done: 4,  total: 12 },
+  clases:      { done: 12, total: 30 },
+  actividades: { done: 5,  total: 15 },
+};
+
+export const mockMeta = {
+  course:  "ECOEMS",
+  current: 48,
+  target:  70,
+};
+
+export const activeCourses = [
+  { id: "ecoems", label: "ECOEMS", target: 70,  current: 48 },
+  { id: "unam",   label: "UNAM",   target: 87,  current: 62 },
+];
+
+export const userOwnedCourseIds = ["ecoems", "unam", "matematicas", "historia", "quimica"];
+
 export const mockUser = {
   name: "Ana García",
   initials: "AG",
@@ -24,6 +44,7 @@ export const mockCourses = [
     lessonNum: 4,
     lessonTotal: 12,
     remainingMin: 18,
+    owned: true,
   },
   {
     slug: "matematicas",
@@ -38,6 +59,7 @@ export const mockCourses = [
     lessonNum: 2,
     lessonTotal: 10,
     remainingMin: 25,
+    owned: true,
   },
   {
     slug: "historia",
@@ -52,6 +74,7 @@ export const mockCourses = [
     lessonNum: 1,
     lessonTotal: 8,
     remainingMin: 32,
+    owned: true,
   },
 ];
 

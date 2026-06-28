@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Logo from "@/components/layout/Logo";
 import { adminStats } from "@/lib/mock-data";
+import { createClient } from "@/lib/supabase/client";
 
 interface NavItem {
   href: string;
@@ -18,7 +19,8 @@ const ExamIcon      = () => <svg width="18" height="18" viewBox="0 0 24 24" fill
 const FolderIcon    = () => <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>;
 const PayIcon       = () => <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>;
 const UsersIcon     = () => <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>;
-const BackIcon      = () => <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>;
+const BackIcon      = () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>;
+const LogoutIcon    = () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>;
 
 const navItems: NavItem[] = [
   { href: "/admin",              label: "Dashboard",   icon: <DashIcon /> },
@@ -31,6 +33,11 @@ const navItems: NavItem[] = [
 
 export default function AdminSidebar() {
   const pathname = usePathname();
+  const router   = useRouter();
+
+  function handleLogout() {
+    router.push("/login");
+  }
 
   return (
     <aside className="w-60 shrink-0 h-screen sticky top-0 flex flex-col bg-[#0d0d0f] border-r border-white/6 overflow-y-auto">
@@ -83,15 +90,26 @@ export default function AdminSidebar() {
         })}
       </nav>
 
-      {/* Back to portal */}
-      <div className="p-3 border-t border-white/5">
+      {/* Exit actions */}
+      <div className="p-3 border-t border-white/5 space-y-1">
         <Link
           href="/dashboard"
-          className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-white/40 hover:text-white hover:bg-white/5 transition-all"
+          className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-white/60 hover:text-white hover:bg-white/8 transition-all group"
         >
-          <BackIcon />
+          <span className="text-violet-400 group-hover:text-violet-300 transition-colors">
+            <BackIcon />
+          </span>
           Volver al portal
         </Link>
+        <button
+          onClick={handleLogout}
+          className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-red-400/70 hover:text-red-300 hover:bg-red-500/10 transition-all group"
+        >
+          <span className="group-hover:text-red-300 transition-colors">
+            <LogoutIcon />
+          </span>
+          Cerrar sesión
+        </button>
       </div>
     </aside>
   );

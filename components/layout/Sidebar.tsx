@@ -7,6 +7,10 @@ import Logo from "./Logo";
 import { logout } from "@/lib/actions/auth";
 import { getInitials } from "@/lib/utils/initials";
 import { useProfile } from "@/components/providers/ProfileProvider";
+import CourseDropdown from "@/components/ui/CourseDropdown";
+import SidebarProgressChart from "@/components/ui/SidebarProgressChart";
+import { activeCourses } from "@/lib/mock-data";
+import { getCourseTheme } from "@/lib/utils/course-theme";
 
 interface NavItem {
   href: string;
@@ -118,10 +122,11 @@ interface SidebarProps {
 }
 
 export default function Sidebar({ open, onClose }: SidebarProps) {
-  const profile   = useProfile();
-  const pathname  = usePathname();
-  const [loading, setLoading] = useState(false);
-  const initials  = getInitials(profile.full_name);
+  const profile        = useProfile();
+  const pathname       = usePathname();
+  const [loading, setLoading]             = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState(activeCourses[0]);
+  const initials       = getInitials(profile.full_name);
 
   async function handleLogout() {
     setLoading(true);
@@ -145,7 +150,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
           <p className="text-sm font-semibold truncate leading-snug">{profile.full_name}</p>
           <div className="flex items-center gap-1.5 mt-0.5">
             {profile.is_pro ? (
-              <span className="text-[10px] text-violet-400 font-semibold">✦ Pro</span>
+              <span className="text-[10px] text-violet-400 font-semibold">Pro</span>
             ) : (
               <span className="text-[10px] text-white/30">Gratuito</span>
             )}
@@ -155,6 +160,33 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
           </div>
         </div>
       </div>
+
+      {/* Course selector + progress — solo en dashboard */}
+      {pathname === "/dashboard" && (() => {
+        const theme = getCourseTheme(selectedCourse.id);
+        return (
+          <div
+            className="mx-3 mt-3 rounded-xl border p-3 space-y-2"
+            style={{
+              borderColor: `${theme.primaryLight}30`,
+              background: `${theme.primary}12`,
+            }}
+          >
+            <CourseDropdown
+              courses={activeCourses}
+              selected={selectedCourse}
+              onChange={(c) => setSelectedCourse(activeCourses.find((a) => a.id === c.id) ?? activeCourses[0])}
+            />
+            <SidebarProgressChart
+              current={selectedCourse.current}
+              target={selectedCourse.target}
+              label={selectedCourse.label}
+              chartStart={theme.chartStart}
+              chartEnd={theme.chartEnd}
+            />
+          </div>
+        );
+      })()}
 
       {/* Nav sections */}
       <nav className="flex-1 p-3 space-y-5 overflow-y-auto mt-2" aria-label="Navegación principal">
@@ -226,9 +258,12 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
       {!profile.is_pro && (
         <div className="p-3 mt-auto">
           <div className="rounded-xl p-4 bg-gradient-to-br from-violet-600/20 to-pink-600/10 border border-violet-500/20">
-            <p className="text-xs font-bold text-white/90 mb-1">
-              🚀 Sube a Elite
-            </p>
+            <div className="flex items-center gap-2 mb-1">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-white/80">
+                <path d="M5 12h14M13 5l7 7-7 7"/>
+              </svg>
+              <p className="text-xs font-bold text-white/90">Sube a Elite</p>
+            </div>
             <p className="text-[11px] text-white/50 mb-3">
               Desbloquea mentores en vivo y todos los simulacros
             </p>

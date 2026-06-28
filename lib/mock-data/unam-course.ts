@@ -94,7 +94,7 @@ export const unamModules: Module[] = [
         duration: "25 min",
         done: false,
         current: true,
-        videoSrc: "/videos/tu-video.mp4",
+        vimeoId: "1199219170",
         description:
           "Mitocondria, retículo endoplásmico, aparato de Golgi, lisosomas y ribosomas: función y estructura. Este tema representa el 12% de Biología en el examen UNAM.",
       },

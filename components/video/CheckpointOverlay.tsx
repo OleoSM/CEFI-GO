@@ -25,8 +25,8 @@ export default function CheckpointOverlay({ checkpoint, onContinue }: Props) {
   const isCorrect = selected === checkpoint.correctIndex;
 
   return (
-    <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-      <div className="w-full max-w-lg card border border-violet-500/30 shadow-2xl shadow-violet-900/40">
+    <div className="absolute inset-0 z-20 flex items-start justify-center bg-black/80 backdrop-blur-sm p-3 overflow-y-auto">
+      <div className="w-full max-w-lg card border border-violet-500/30 shadow-2xl shadow-violet-900/40 my-auto">
         {/* Header */}
         <div className="flex items-center gap-2 mb-5">
           <span className="w-8 h-8 rounded-full bg-violet-500/20 flex items-center justify-center shrink-0">

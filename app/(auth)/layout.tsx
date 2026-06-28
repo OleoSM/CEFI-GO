@@ -1,16 +1,13 @@
-export default function AuthLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+import NebulaBackground from "@/components/ui/nebula-background";
+
+export default function AuthLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="relative min-h-screen overflow-hidden">
-      <div className="aurora-bg" aria-hidden="true">
-        <div className="aurora-blob aurora-blob--1" />
-        <div className="aurora-blob aurora-blob--2" />
-        <div className="grid-overlay" />
+    <div className="relative min-h-screen overflow-hidden bg-[#0B0617]">
+      <NebulaBackground />
+      <div className="grid-overlay fixed inset-0 pointer-events-none" aria-hidden="true" />
+      <div className="relative z-10">
+        {children}
       </div>
-      {children}
     </div>
   );
 }

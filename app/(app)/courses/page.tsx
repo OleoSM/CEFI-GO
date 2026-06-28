@@ -1,54 +1,91 @@
 import Link from "next/link";
-import { mockCourses } from "@/lib/mock-data";
+import Image from "next/image";
 
-const extraCourses = [
+type Course = {
+  slug: string;
+  title: string;
+  tag: string;
+  duration: string;
+  enrolled: string;
+  image: string;
+  accent: string;
+  progress: number;
+  module: string;
+  lesson: string;
+  lessonNum: number;
+  lessonTotal: number;
+  remainingMin: number;
+  owned: boolean;
+};
+
+const COURSES: Course[] = [
+  {
+    slug: "unam",
+    title: "Examen UNAM",
+    tag: "Licenciatura",
+    duration: "6 meses",
+    enrolled: "32,400",
+    image: "/courses/unam.jpg",
+    accent: "#FABD00",
+    progress: 78,
+    module: "Módulo 4",
+    lesson: "Biología celular y genética",
+    lessonNum: 4,
+    lessonTotal: 12,
+    remainingMin: 35,
+    owned: true,
+  },
   {
     slug: "ipn",
     title: "Examen IPN",
     tag: "Física-Matemáticas",
     duration: "5 meses",
-    enrolled: "18,750",
-    gradient: "from-pink-600 to-violet-600",
+    enrolled: "21,200",
+    image: "/courses/ipn.jpg",
+    accent: "#EF5350",
     progress: 0,
     module: "Módulo 1",
     lesson: "Introducción al IPN",
     lessonNum: 1,
     lessonTotal: 14,
     remainingMin: 45,
+    owned: false,
   },
   {
-    slug: "comipems",
-    title: "COMIPEMS",
-    tag: "Bachillerato",
-    duration: "3 meses",
-    enrolled: "24,870",
-    gradient: "from-cyan-500 to-blue-600",
+    slug: "ceneval",
+    title: "EXANI-II (CENEVAL)",
+    tag: "Licenciatura",
+    duration: "4 meses",
+    enrolled: "12,300",
+    image: "/courses/ceneval.png",
+    accent: "#81D4FA",
+    progress: 42,
+    module: "Módulo 2",
+    lesson: "Pensamiento matemático",
+    lessonNum: 2,
+    lessonTotal: 10,
+    remainingMin: 28,
+    owned: true,
+  },
+  {
+    slug: "uam",
+    title: "Examen UAM",
+    tag: "Licenciatura",
+    duration: "4 meses",
+    enrolled: "9,120",
+    image: "/courses/uam.jpg",
+    accent: "#CE93D8",
     progress: 0,
     module: "Módulo 1",
-    lesson: "Español y comunicación",
+    lesson: "Comprensión lectora y redacción",
     lessonNum: 1,
-    lessonTotal: 10,
-    remainingMin: 30,
-  },
-  {
-    slug: "quimica",
-    title: "Química orgánica",
-    tag: "Ciencias",
-    duration: "6 semanas",
-    enrolled: "8,400",
-    gradient: "from-emerald-500 to-cyan-500",
-    progress: 58,
-    module: "Módulo 3",
-    lesson: "Compuestos orgánicos",
-    lessonNum: 3,
-    lessonTotal: 8,
-    remainingMin: 22,
+    lessonTotal: 11,
+    remainingMin: 40,
+    owned: false,
   },
 ];
 
-const allCourses = [...mockCourses, ...extraCourses];
-
-const activeCourses = allCourses.filter((c) => c.progress > 0).length;
+const activeCourses = COURSES.filter((c) => c.progress > 0).length;
 
 export default function CoursesPage() {
   return (
@@ -56,15 +93,10 @@ export default function CoursesPage() {
       {/* Header */}
       <header className="flex items-center justify-between gap-4">
         <div>
-          <h1
-            className="text-3xl font-black gradient-text"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
+          <h1 className="text-3xl font-black gradient-text" style={{ fontFamily: "var(--font-display)" }}>
             Mis cursos
           </h1>
-          <p className="text-sm text-white/45 mt-1">
-            Todos tus materiales de preparación en un solo lugar
-          </p>
+          <p className="text-sm text-white/45 mt-1">Todos tus materiales de preparación en un solo lugar</p>
         </div>
         <span className="badge badge--violet text-sm px-3 py-1.5 font-bold">
           {activeCourses} activos
@@ -72,72 +104,109 @@ export default function CoursesPage() {
       </header>
 
       {/* Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {allCourses.map((course) => (
-          <div key={course.slug} className="card flex flex-col gap-4 overflow-hidden">
-            {/* Gradient header */}
-            <div
-              className={`-mx-6 -mt-6 px-6 pt-6 pb-5 bg-gradient-to-br ${course.gradient}`}
-            >
-              <span className="inline-block text-[11px] font-bold uppercase tracking-widest bg-black/20 text-white/80 rounded-full px-2.5 py-0.5 mb-3">
-                {course.tag}
-              </span>
-              <h2
-                className="text-xl font-black text-white leading-tight"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                {course.title}
-              </h2>
-              <div className="flex items-center gap-3 mt-2 text-[12px] text-white/70">
-                <span>⏱ {course.duration}</span>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-5">
+        {COURSES.map((course) => (
+          <div key={course.slug} className="card flex flex-col gap-4 overflow-hidden p-0">
+
+            {/* Image header */}
+            <div className="relative h-44 overflow-hidden">
+              <Image
+                src={course.image}
+                alt={course.title}
+                fill
+                className="object-cover"
+                sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
+              />
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+
+              {/* Lock badge */}
+              {!course.owned && (
+                <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>
+                  </svg>
+                </div>
+              )}
+
+              {/* Progress pill */}
+              {course.owned && course.progress > 0 && (
+                <div className="absolute top-3 left-3">
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full text-white" style={{ background: `${course.accent}cc` }}>
+                    {course.progress}%
+                  </span>
+                </div>
+              )}
+
+              {/* Title over image */}
+              <div className="absolute bottom-0 left-0 right-0 px-4 pb-3">
+                <span className="inline-block text-[10px] font-bold uppercase tracking-widest bg-black/30 text-white/70 rounded-full px-2 py-0.5 mb-1 backdrop-blur-sm">
+                  {course.tag}
+                </span>
+                <h2 className="text-lg font-black text-white leading-tight" style={{ fontFamily: "var(--font-display)" }}>
+                  {course.title}
+                </h2>
+              </div>
+            </div>
+
+            {/* Body */}
+            <div className="flex flex-col gap-3 px-4 pb-4">
+              {/* Meta */}
+              <div className="flex items-center gap-3 text-[11px] text-white/40">
+                <span className="flex items-center gap-1">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  {course.duration}
+                </span>
                 <span>·</span>
-                <span>👥 {course.enrolled}</span>
+                <span className="flex items-center gap-1">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                  {course.enrolled}
+                </span>
               </div>
+
+              {/* Progress bar (owned) */}
+              {course.owned && (
+                <div className="space-y-1">
+                  <div className="flex justify-between text-[10px] text-white/35">
+                    <span>{course.module} · Lec {course.lessonNum}/{course.lessonTotal}</span>
+                    <span>{course.progress}%</span>
+                  </div>
+                  <div className="h-1.5 bg-white/8 rounded-full overflow-hidden">
+                    <div
+                      className="h-full rounded-full transition-all"
+                      style={{ width: `${course.progress}%`, background: course.accent }}
+                    />
+                  </div>
+                  <p className="text-[11px] text-white/50 truncate">{course.lesson}</p>
+                </div>
+              )}
+
+              {/* CTA */}
+              {course.owned ? (
+                <Link
+                  href={`/courses/${course.slug}`}
+                  className="mt-auto text-center py-2.5 px-4 rounded-xl text-sm font-bold text-white transition-all hover:opacity-90"
+                  style={{ background: `linear-gradient(135deg, ${course.accent}88, ${course.accent}44)`, border: `1px solid ${course.accent}44` }}
+                >
+                  {course.progress > 0 ? "Continuar" : "Comenzar"}
+                </Link>
+              ) : (
+                <div className="mt-auto space-y-2">
+                  <p className="text-[11px] text-white/30 flex items-center gap-1.5">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                    No incluido en tu plan
+                  </p>
+                  <Link
+                    href="/suscribirse"
+                    className="block text-center py-2.5 px-4 rounded-xl text-sm font-bold border transition-all hover:bg-violet-500/10"
+                    style={{ borderColor: `${course.accent}55`, color: course.accent }}
+                  >
+                    Adquirir acceso
+                  </Link>
+                </div>
+              )}
             </div>
 
-            {/* Progress */}
-            <div className="space-y-1.5">
-              <div className="flex items-center justify-between text-xs">
-                <span className="text-white/45">Progreso</span>
-                <span className="font-bold text-white/80">{course.progress}%</span>
-              </div>
-              <div className="progress-bar">
-                <div
-                  className="progress-bar__fill"
-                  style={{ width: `${course.progress}%` }}
-                />
-              </div>
-            </div>
-
-            {/* Lesson info */}
-            <div className="flex-1">
-              <p className="text-xs text-white/40 mb-0.5">
-                {course.module} · Lec {course.lessonNum}/{course.lessonTotal}
-              </p>
-              <p className="text-sm font-medium text-white/85 line-clamp-2">
-                {course.lesson}
-              </p>
-              <p className="text-xs text-white/35 mt-1">
-                {course.remainingMin} min restantes
-              </p>
-            </div>
-
-            {/* CTA */}
-            <Link
-              href={`/courses/${course.slug}`}
-              className="btn btn--primary text-sm text-center"
-            >
-              {course.progress > 0 ? "Continuar" : "Comenzar"}
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path
-                  d="M5 12h14M13 5l7 7-7 7"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </Link>
           </div>
         ))}
       </div>
