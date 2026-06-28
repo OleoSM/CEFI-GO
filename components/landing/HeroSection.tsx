@@ -6,11 +6,9 @@ import { motion, AnimatePresence, type Variants } from "framer-motion";
 
 // University brand colors — each gets its own identity
 const ROTATING_WORDS = [
-  { text: "UNAM",     color: "#FABD00", glow: "#1565C0", label: "Universidad Nacional Autónoma de México" },
-  { text: "IPN",      color: "#EF5350", glow: "#C62828", label: "Instituto Politécnico Nacional" },
-  { text: "UAM",      color: "#CE93D8", glow: "#7B1FA2", label: "Universidad Autónoma Metropolitana" },
-  { text: "COMIPEMS", color: "#A5D6A7", glow: "#2E7D32", label: "Concurso de Ingreso al Nivel Medio Superior" },
-  { text: "CENEVAL",  color: "#81D4FA", glow: "#0277BD", label: "Centro Nacional de Evaluación" },
+  { text: "UNAM", color: "#1565C0", prefix: "a la", label: "Universidad Nacional Autónoma de México" },
+  { text: "IPN",  color: "#800020", prefix: "al",   label: "Instituto Politécnico Nacional" },
+  { text: "UAM",  color: "#7B1FA2", prefix: "a la", label: "Universidad Autónoma Metropolitana" },
 ];
 
 function ArrowIcon() {
@@ -116,10 +114,10 @@ export default function HeroSection() {
             className="text-5xl lg:text-6xl font-black leading-[1.05] mb-6"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Entra a la{" "}
+            Entra{" "}
             <span
               className="inline-flex flex-col overflow-hidden h-[1.1em] align-bottom"
-              aria-label={word.label}
+              aria-label={`${word.prefix} ${word.text}`}
             >
               <AnimatePresence mode="wait">
                 <motion.span
@@ -128,13 +126,10 @@ export default function HeroSection() {
                   animate={{ y: 0, opacity: 1 }}
                   exit={{ y: "-100%", opacity: 0 }}
                   transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                  className="block"
-                  style={{
-                    color: word.color,
-                    textShadow: `0 0 40px ${word.glow}88`,
-                  }}
+                  className="block whitespace-nowrap"
                 >
-                  {word.text}
+                  <span className="text-white">{word.prefix} </span>
+                  <span style={{ color: word.color }}>{word.text}</span>
                 </motion.span>
               </AnimatePresence>
             </span>
@@ -192,20 +187,46 @@ export default function HeroSection() {
               <span className="w-3 h-3 rounded-full bg-green-500/60" />
             </div>
 
-            {/* Flash offer */}
-            <div className="rounded-xl bg-gradient-to-br from-orange-950/60 to-amber-900/30 border border-orange-500/25 p-4 mb-3">
-              <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center gap-1.5 text-orange-400 text-xs font-bold uppercase tracking-wider">
+            {/* Flash offer — most prominent element */}
+            <div className="flash-offer-card rounded-xl bg-gradient-to-br from-violet-950/70 via-[#1a0a22] to-pink-950/50 p-4 mb-3 relative">
+              {/* Badge + countdown */}
+              <div className="flex items-center justify-between mb-3">
+                <div className="flash-badge inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-amber-400 text-black text-[11px] font-black uppercase tracking-wider">
                   <ZapIcon /> Oferta relámpago
                 </div>
-                <div className="text-xs text-white/40">Termina en <FlashCountdown /></div>
+                <div className="text-xs text-white/50">Termina en <FlashCountdown /></div>
               </div>
+
               <p className="text-white font-black text-lg leading-tight mb-1">Plan Pro · 3 meses</p>
-              <div className="flex items-baseline gap-2">
-                <span className="text-3xl font-black text-orange-400">$599</span>
-                <span className="text-white/30 text-sm line-through">$897</span>
-                <span className="text-xs px-2 py-0.5 rounded-full bg-orange-500/20 border border-orange-500/30 text-orange-400 font-bold">−33%</span>
+
+              {/* Prices */}
+              <div className="flex items-baseline gap-2 mb-3">
+                <span className="text-4xl font-black bg-gradient-to-r from-violet-300 to-pink-400 bg-clip-text text-transparent">$599</span>
+                <span className="text-white/35 text-base line-through">$897</span>
+                <span className="text-xs px-2 py-0.5 rounded-full bg-pink-500/20 border border-pink-500/40 text-pink-300 font-bold">−33%</span>
               </div>
+
+              {/* Lugares restantes — urgency bar */}
+              <div className="mb-3">
+                <div className="flex items-center justify-between text-[11px] mb-1.5">
+                  <span className="text-orange-300 font-bold">Solo 7 lugares disponibles</span>
+                  <span className="text-white/40">23 vendidos</span>
+                </div>
+                <div className="h-2 w-full rounded-full bg-white/10 overflow-hidden">
+                  <div
+                    className="h-full rounded-full bg-gradient-to-r from-orange-500 to-red-500"
+                    style={{ width: "77%" }}
+                  />
+                </div>
+              </div>
+
+              {/* CTA */}
+              <Link
+                href="/register"
+                className="flash-cta flex items-center justify-center gap-2 w-full px-4 py-3 rounded-lg text-sm font-black uppercase tracking-wide text-white bg-gradient-to-r from-violet-600 to-pink-600 hover:scale-105 transition-transform"
+              >
+                Aprovechar oferta <ArrowIcon />
+              </Link>
             </div>
 
             {/* Upcoming simulacros */}
@@ -215,9 +236,9 @@ export default function HeroSection() {
               </div>
               <div className="space-y-2">
                 {[
-                  { exam: "UNAM Área 2", date: "Sáb 28 Jun", spots: 12, color: "#FABD00" },
-                  { exam: "IPN COMIPEMS", date: "Dom 29 Jun", spots: 5,  color: "#EF5350" },
-                  { exam: "UAM — Azcapotzalco", date: "Sáb 5 Jul", spots: 28, color: "#CE93D8" },
+                  { exam: "UNAM Área 2", date: "Sáb 28 Jun", spots: 12, color: "#1565C0" },
+                  { exam: "IPN — Ingeniería", date: "Dom 29 Jun", spots: 5,  color: "#800020" },
+                  { exam: "UAM — Azcapotzalco", date: "Sáb 5 Jul", spots: 28, color: "#7B1FA2" },
                 ].map((s) => (
                   <motion.div
                     key={s.exam}

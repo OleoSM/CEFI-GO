@@ -6,9 +6,9 @@ const outfit = Outfit({ subsets: ["latin"], variable: "--font-display" });
 const rubik = Rubik({ subsets: ["latin"], variable: "--font-body" });
 
 export const metadata: Metadata = {
-  title: "CEFITIPS — Entra a la universidad de tus sueños",
+  title: "CEFI GO — Plataforma de preparación universitaria",
   description:
-    "La plataforma #1 en México para preparar tu examen de admisión a UNAM, IPN, UAM y COMIPEMS.",
+    "La plataforma #1 en México para preparar tu examen de admisión a UNAM, IPN y UAM.",
 };
 
 export default function RootLayout({

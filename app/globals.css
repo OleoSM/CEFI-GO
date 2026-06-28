@@ -54,7 +54,7 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  /* CEFITIPS brand colors */
+  /* CEFI GO brand colors */
   --color-cefi-bg: #0B0617;
   --color-cefi-violet: #A78BFA;
   --color-cefi-violet-dark: #7C3AED;
@@ -147,7 +147,7 @@
 }
 
 /* ════════════════════════════════════════════════════════
-   CEFITIPS CUSTOM UTILITIES
+   CEFI GO CUSTOM UTILITIES
    ════════════════════════════════════════════════════════ */
 
 /* ─── Gradient text ─────────────────────────────────────── */
@@ -794,3 +794,42 @@
 
 /* Vimeo iframe fill */
 .vimeo-container iframe { position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; }
+
+/* ─── Flash offer prominence ────────────────────────────── */
+/* Pulsing border + box-shadow cycling violet -> pink every 2s */
+@keyframes borderPulse {
+  0%, 100% {
+    border-color: #A78BFA;
+    box-shadow: 0 0 40px rgba(167, 139, 250, 0.4);
+  }
+  50% {
+    border-color: #EC4899;
+    box-shadow: 0 0 40px rgba(236, 72, 153, 0.45);
+  }
+}
+
+.flash-offer-card {
+  border-width: 2px;
+  border-style: solid;
+  animation: borderPulse 2s ease-in-out infinite;
+}
+
+/* Badge blink for the OFERTA RELAMPAGO label */
+@keyframes flashBadgeBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
+.flash-badge {
+  animation: flashBadgeBlink 1.2s ease-in-out infinite;
+}
+
+/* Subtle CTA pulse */
+@keyframes ctaPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.45); }
+  50% { box-shadow: 0 0 0 6px rgba(236, 72, 153, 0); }
+}
+
+.flash-cta {
+  animation: ctaPulse 1.8s ease-in-out infinite;
+}
