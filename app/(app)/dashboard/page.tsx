@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { mockUser, mockCourses, mockExams, mockProgress, mockMeta } from "@/lib/mock-data";
 import StudyPlanPanel from "@/components/dashboard/StudyPlanPanel";
+import WelcomePlanModal from "@/components/dashboard/WelcomePlanModal";
 
 function ScoreColor(score: number) {
   if (score >= 85) return "text-emerald-400";
@@ -63,6 +64,8 @@ const stats = [
 export default function DashboardPage() {
   return (
     <div className="max-w-6xl mx-auto space-y-8">
+      <WelcomePlanModal />
+
       {/* Welcome banner */}
       <section className="card bg-gradient-to-r from-violet-900/40 to-pink-900/20 border-violet-500/20">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
@@ -332,32 +335,6 @@ export default function DashboardPage() {
             </p>
           </div>
 
-          {/* Mentor */}
-          <div className="card">
-            <h3 className="font-black mb-3" style={{ fontFamily: "var(--font-display)" }}>
-              Tu mentor
-            </h3>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-violet-600 flex items-center justify-center text-lg font-black text-white shrink-0">
-                JS
-              </div>
-              <div>
-                <p className="font-bold text-sm">Javier Silva</p>
-                <p className="text-xs text-white/40">Ing. Industrial · UNAM 2023</p>
-                <div className="flex items-center gap-1 mt-0.5">
-                  {Array(5).fill(0).map((_, i) => (
-                    <svg key={i} width="12" height="12" viewBox="0 0 24 24" fill="#F59E0B">
-                      <path d="M12 2l2.4 7.4H22l-6.2 4.5L18.2 22 12 17.3 5.8 22l2.4-8.1L2 9.4h7.6z" />
-                    </svg>
-                  ))}
-                  <span className="text-xs text-white/40 ml-1">4.9</span>
-                </div>
-              </div>
-            </div>
-            <Link href="/mentors" className="btn btn--ghost btn--full text-sm">
-              Agendar sesión
-            </Link>
-          </div>
         </div>
       </section>
     </div>

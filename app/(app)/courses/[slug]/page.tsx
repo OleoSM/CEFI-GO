@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { mockCourses, unamModules } from "@/lib/mock-data";
 import { getCourseTheme } from "@/lib/utils/course-theme";
+import CourseModulesAccordion from "@/components/courses/CourseModulesAccordion";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -189,6 +190,14 @@ export default async function CourseDetailPage({ params }: PageProps) {
             );
           })}
         </div>
+      </section>
+
+      {/* Course content — accordion with lessons, quizzes & module exams */}
+      <section>
+        <h2 className="text-lg font-black mb-4" style={{ fontFamily: "var(--font-display)" }}>
+          Contenido del curso
+        </h2>
+        <CourseModulesAccordion slug={slug} modules={unamModules} accent={theme.accent} />
       </section>
 
       {/* Continue CTA — themed */}

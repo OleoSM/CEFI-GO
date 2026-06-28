@@ -169,6 +169,8 @@ export {
 export type {
   Lesson,
   Module,
+  Quiz,
+  ModuleExam,
   VideoCheckpoint,
   ExamQuestion,
   CourseExam,

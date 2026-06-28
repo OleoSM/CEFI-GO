@@ -1,5 +1,17 @@
 // lib/mock-data/unam-course.ts
 
+export interface Quiz {
+  id: string;
+  questionsCount: number;
+  done: boolean;
+}
+
+export interface ModuleExam {
+  id: string;
+  questionsCount: number;
+  done: boolean;
+}
+
 export interface Lesson {
   id: string;
   title: string;
@@ -11,13 +23,19 @@ export interface Lesson {
   /** Vimeo numeric ID used in production (set by admin when uploading lesson) */
   vimeoId?: string;
   description: string;
+  /** Cuestionario que se desbloquea al completar la lección */
+  quiz?: Quiz;
 }
 
 export interface Module {
   id: number;
   title: string;
   lessons: Lesson[];
+  /** Examen de módulo, se desbloquea al terminar todas las lecciones */
+  moduleExam: ModuleExam;
 }
+
+type RawModule = Omit<Module, "moduleExam">;
 
 export interface VideoCheckpoint {
   id: string;
@@ -65,7 +83,7 @@ export interface StudyResource {
 
 // ─── SYLLABUS ────────────────────────────────────────────────────────────────
 
-export const unamModules: Module[] = [
+const rawModules: RawModule[] = [
   {
     id: 1,
     title: "Módulo 1 — Biología Celular",
@@ -269,6 +287,18 @@ export const unamModules: Module[] = [
     ],
   },
 ];
+
+// Enriquecemos cada módulo con su examen de módulo y cada lección con su
+// cuestionario. Todo arranca en done:false; los quizzes tienen 5 preguntas y
+// los exámenes de módulo 15.
+export const unamModules: Module[] = rawModules.map((mod) => ({
+  ...mod,
+  lessons: mod.lessons.map((lesson) => ({
+    ...lesson,
+    quiz: { id: `quiz-${lesson.id}`, questionsCount: 5, done: false },
+  })),
+  moduleExam: { id: `module-exam-${mod.id}`, questionsCount: 15, done: false },
+}));
 
 // ─── VIDEO CHECKPOINTS ────────────────────────────────────────────────────────
 // These timestamps are set by the admin in the video_checkpoints Supabase table
