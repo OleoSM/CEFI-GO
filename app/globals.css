@@ -833,3 +833,15 @@
 .flash-cta {
   animation: ctaPulse 1.8s ease-in-out infinite;
 }
+
+/* Theme: UNAM */
+.theme-unam {
+  --color-primary: #003366;
+  --color-accent: #CC9933;
+}
+
+/* Theme: IPN */
+.theme-ipn {
+  --color-primary: #800020;
+  --color-accent: #006633;
+}

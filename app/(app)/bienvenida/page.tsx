@@ -83,9 +83,9 @@ export default async function BienvenidaPage({ searchParams }: BienvenidaPagePro
             role="status"
             aria-label="Plan activo"
           >
-            <span aria-hidden="true">✦</span>
+            <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-violet-300" />
             <span>¡Ya eres Pro!</span>
-            <span aria-hidden="true">✦</span>
+            <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-violet-300" />
           </div>
           <h1 className="text-3xl sm:text-4xl font-bold text-white mb-3">
             Bienvenido a{' '}

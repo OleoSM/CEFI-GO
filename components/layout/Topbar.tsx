@@ -125,7 +125,7 @@ export default function Topbar({ onMenuClick }: TopbarProps) {
                 </div>
                 <div className="mt-2">
                   {profile.is_pro ? (
-                    <span className="badge badge--violet text-[10px]">✦ Pro</span>
+                    <span className="badge badge--violet text-[10px]">Pro</span>
                   ) : (
                     <span className="text-[10px] text-white/30">Plan gratuito</span>
                   )}

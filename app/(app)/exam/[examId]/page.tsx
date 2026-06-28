@@ -91,7 +91,17 @@ export default function ExamPage({ params }: PageProps) {
     return (
       <div className="max-w-2xl mx-auto py-10 space-y-6">
         <div className="text-center space-y-2">
-          <div className="flex justify-center text-5xl mb-3">{passed ? "🎉" : "📚"}</div>
+          <div className="flex justify-center mb-3 text-violet-400">
+            {passed ? (
+              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M8 21h8M12 17v4M6 9H4.5a2.5 2.5 0 010-5H6M18 9h1.5a2.5 2.5 0 000-5H18M18 2H6v7a6 6 0 0012 0V2z"/>
+              </svg>
+            ) : (
+              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
+              </svg>
+            )}
+          </div>
           <h1 className="text-4xl font-black gradient-text" style={{ fontFamily: "var(--font-display)" }}>
             {passed ? "¡Aprobado!" : "Sigue practicando"}
           </h1>

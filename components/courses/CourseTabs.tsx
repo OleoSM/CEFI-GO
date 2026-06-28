@@ -199,12 +199,36 @@ export default function CourseTabs({ slug, modules }: Props) {
 
             <div className="grid grid-cols-3 gap-3 mb-4">
               {[
-                { icon: "📋", label: "Reactivos", value: unamExam.questions.length },
-                { icon: "⏱", label: "Tiempo", value: `${unamExam.timeMinutes} min` },
-                { icon: "🎯", label: "Aprobatorio", value: `${unamExam.passingScore}%` },
+                {
+                  icon: (
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/>
+                    </svg>
+                  ),
+                  label: "Reactivos",
+                  value: unamExam.questions.length,
+                },
+                {
+                  icon: (
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/>
+                    </svg>
+                  ),
+                  label: "Tiempo",
+                  value: `${unamExam.timeMinutes} min`,
+                },
+                {
+                  icon: (
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/>
+                    </svg>
+                  ),
+                  label: "Aprobatorio",
+                  value: `${unamExam.passingScore}%`,
+                },
               ].map((stat) => (
                 <div key={stat.label} className="bg-white/4 rounded-xl p-3 text-center">
-                  <p className="text-lg">{stat.icon}</p>
+                  <p className="flex justify-center text-violet-400 mb-1">{stat.icon}</p>
                   <p className="text-sm font-bold">{stat.value}</p>
                   <p className="text-[10px] text-white/40 uppercase tracking-wider">{stat.label}</p>
                 </div>
@@ -231,7 +255,11 @@ export default function CourseTabs({ slug, modules }: Props) {
           </div>
 
           <div className="card border-dashed border-white/10 text-center py-8">
-            <p className="text-2xl mb-2">🔒</p>
+            <p className="flex justify-center text-white/40 mb-2">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>
+              </svg>
+            </p>
             <p className="text-sm font-semibold text-white/50">Más simulacros próximamente</p>
             <p className="text-xs text-white/30 mt-1">Mini-tests por materia y simulacros de años anteriores</p>
           </div>

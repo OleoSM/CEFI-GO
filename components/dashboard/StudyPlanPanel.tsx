@@ -245,7 +245,11 @@ export default function StudyPlanPanel() {
                 }`}
               >
                 Sem {w.week}
-                {i < 2 && <span className="ml-1.5 text-[9px] text-emerald-400">✓</span>}
+                {i < 2 && (
+                  <svg className="inline-block ml-1.5 text-emerald-400" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                )}
                 {i === 2 && <span className="ml-1.5 text-[9px] text-amber-400">●</span>}
               </button>
             ))}
@@ -387,7 +391,7 @@ export default function StudyPlanPanel() {
                         <span className={`text-[10px] font-bold ${meta.color}`}>{meta.label}</span>
                         <span className="text-[10px] text-white/25">{m.pages} págs.</span>
                         {m.hot && (
-                          <span className="text-[10px] text-amber-400 font-bold">🔥 Popular</span>
+                          <span className="text-[10px] text-amber-400 font-bold">Popular</span>
                         )}
                       </div>
                     </div>
@@ -403,7 +407,7 @@ export default function StudyPlanPanel() {
             {/* AI insight */}
             <div className="mt-1 p-3 rounded-xl bg-violet-500/8 border border-violet-500/20">
               <p className="text-[11px] text-violet-300 leading-relaxed">
-                <span className="font-bold">💡 IA sugiere:</span> Tu rendimiento en Física bajó vs la semana pasada. Dedica 30 min extra esta semana a cinemática antes del simulacro.
+                <span className="font-bold">Sugerencia IA:</span> Tu rendimiento en Física bajó vs la semana pasada. Dedica 30 min extra esta semana a cinemática antes del simulacro.
               </p>
             </div>
           </div>

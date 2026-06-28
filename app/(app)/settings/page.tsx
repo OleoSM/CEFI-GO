@@ -87,7 +87,7 @@ export default function SettingsPage() {
       </header>
 
       {/* Notifications */}
-      <SectionCard title="🔔 Notificaciones">
+      <SectionCard title="Notificaciones">
         <Toggle
           checked={notif.email}
           onChange={() => toggle("email")}
@@ -115,7 +115,7 @@ export default function SettingsPage() {
       </SectionCard>
 
       {/* Privacy */}
-      <SectionCard title="🔒 Privacidad">
+      <SectionCard title="Privacidad">
         <Toggle
           checked={privacy.showProfile}
           onChange={() => togglePrivacy("showProfile")}
@@ -131,7 +131,7 @@ export default function SettingsPage() {
       </SectionCard>
 
       {/* Account */}
-      <SectionCard title="👤 Cuenta">
+      <SectionCard title="Cuenta">
         <div className="py-3 flex items-center justify-between gap-4">
           <div>
             <p className="text-sm font-medium">Cambiar contraseña</p>
@@ -167,7 +167,7 @@ export default function SettingsPage() {
       </SectionCard>
 
       {/* Plan */}
-      <SectionCard title="⚡ Plan actual">
+      <SectionCard title="Plan actual">
         <div className="py-3 flex items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2 mb-0.5">

@@ -96,7 +96,7 @@ export default function CheckpointEditor({ lessonId, lessonTitle, onClose }: Pro
               <div className="flex items-center justify-between gap-3">
                 <div className="flex items-center gap-2">
                   <span className="text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 rounded-full px-2.5 py-0.5">
-                    ⏱ {cp.timestampSeconds}s
+                    {cp.timestampSeconds}s
                   </span>
                   <span className="text-xs text-white/40">Checkpoint #{idx + 1}</span>
                 </div>

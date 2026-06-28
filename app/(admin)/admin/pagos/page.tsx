@@ -45,7 +45,7 @@ export default function AdminPagosPage() {
           <p className="text-sm text-white/40 mt-0.5">
             {pendingCount > 0
               ? `${pendingCount} comprobante${pendingCount > 1 ? "s" : ""} esperando revisión · $${totalPendingRevenue.toLocaleString("es-MX")} MXN en espera`
-              : "No hay pagos pendientes ✓"}
+              : "No hay pagos pendientes"}
           </p>
         </div>
         {pendingCount > 0 && (

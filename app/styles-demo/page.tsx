@@ -358,7 +358,7 @@ function StyleGlassModerno() {
             {[
               { label: "Plan Pro", bg: "rgba(124,58,237,0.2)", color: "#C4B5FD" },
               { label: "3 activos", bg: "rgba(249,115,22,0.2)", color: "#FED7AA" },
-              { label: "Racha 🔥", bg: "rgba(245,158,11,0.15)", color: "#FCD34D" },
+              { label: "Racha", bg: "rgba(245,158,11,0.15)", color: "#FCD34D" },
             ].map(b => (
               <span key={b.label} style={{
                 display: "inline-block", background: b.bg, color: b.color,
@@ -569,7 +569,7 @@ function StyleBoldColorido() {
             </span>
           </div>
           <div style={{ display: "flex", gap: 6 }}>
-            {["🏠", "📚", "✏️", "📊"].map((icon, i) => (
+            {["Inicio", "Cursos", "Práctica", "Datos"].map((icon, i) => (
               <div key={i} style={{
                 width: 36, height: 36, borderRadius: 10,
                 background: i === 0 ? "rgba(124,58,237,0.2)" : "rgba(255,255,255,0.05)",
@@ -598,10 +598,10 @@ function StyleBoldColorido() {
         {/* Colorful stat pills */}
         <div style={{ display: "flex", gap: 8, marginBottom: 20, flexWrap: "wrap" }}>
           {[
-            { label: "🔥 14 días de racha", bg: "rgba(245,158,11,0.15)", border: "rgba(245,158,11,0.3)", color: "#FCD34D" },
-            { label: "⭐ 78 puntos", bg: "rgba(124,58,237,0.15)", border: "rgba(124,58,237,0.3)", color: "#C4B5FD" },
-            { label: "✅ 4 cursos activos", bg: "rgba(16,185,129,0.12)", border: "rgba(16,185,129,0.25)", color: "#6EE7B7" },
-            { label: "⏱ 1h 24m hoy", bg: "rgba(249,115,22,0.12)", border: "rgba(249,115,22,0.25)", color: "#FED7AA" },
+            { label: "14 días de racha", bg: "rgba(245,158,11,0.15)", border: "rgba(245,158,11,0.3)", color: "#FCD34D" },
+            { label: "78 puntos", bg: "rgba(124,58,237,0.15)", border: "rgba(124,58,237,0.3)", color: "#C4B5FD" },
+            { label: "4 cursos activos", bg: "rgba(16,185,129,0.12)", border: "rgba(16,185,129,0.25)", color: "#6EE7B7" },
+            { label: "1h 24m hoy", bg: "rgba(249,115,22,0.12)", border: "rgba(249,115,22,0.25)", color: "#FED7AA" },
           ].map(s => (
             <span key={s.label} style={{
               background: s.bg, border: `1px solid ${s.border}`,
@@ -621,7 +621,7 @@ function StyleBoldColorido() {
           <div style={{
             position: "absolute", right: 16, top: "50%", transform: "translateY(-50%)",
             fontSize: 60, opacity: 0.15, pointerEvents: "none",
-          }} aria-hidden>🧬</div>
+          }} aria-hidden />
           <div style={{ fontSize: 11, color: "rgba(255,255,255,0.5)", marginBottom: 6, fontWeight: 600 }}>Continúa donde lo dejaste</div>
           <div style={{ fontSize: 19, fontWeight: 900, color: "white", marginBottom: 6, lineHeight: 1.2 }}>Mitosis y meiosis — Fases celulares</div>
           <div style={{ fontSize: 11, color: "rgba(255,255,255,0.5)", marginBottom: 14 }}>Módulo 4 · Lección 4/12 · 18 min restantes</div>
@@ -760,7 +760,7 @@ export default function StylesDemoPage() {
                   <div style={{ display: "flex", gap: 16 }}>
                     <div>
                       {s.pros.map(p => (
-                        <span key={p} style={{ fontSize: 11, color: "rgba(110,231,183,0.8)", marginRight: 12 }}>✓ {p}</span>
+                        <span key={p} style={{ fontSize: 11, color: "rgba(110,231,183,0.8)", marginRight: 12 }}>+ {p}</span>
                       ))}
                     </div>
                     <div>
