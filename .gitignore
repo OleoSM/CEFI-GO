@@ -68,3 +68,5 @@ desktop.ini
 # --- Misc ---
 *.tmp
 *.bak
+*.mp4
+public/videos/
